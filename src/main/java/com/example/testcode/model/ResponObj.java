@@ -1,16 +1,14 @@
 package com.example.testcode.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-public class ResponRole {
-    public int success = 200;
-    public int fail = 207;
-    private int code;
+@Getter
+@Setter
+public class ResponObj extends ResponSaveRole {
     private Object data;
-    private String desc;
+
+    public ResponObj(int code, String desc, Object data) {
+        super(code, desc);
+        this.data = data;
+    }
 }

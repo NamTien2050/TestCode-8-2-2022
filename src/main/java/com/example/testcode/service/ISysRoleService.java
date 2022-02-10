@@ -8,4 +8,14 @@ import java.util.List;
 
 public interface ISysRoleService {
     List<SysRole> findSysRolesBy(String search);
+
+    List<SysRole> getAll();
+
+    void saveRole(SysRole role);
+
+    boolean removeRole(int roleId);
+
+    SysRole findById(int roleId);
+
+    void editRole(SysRole sysRole);
 }

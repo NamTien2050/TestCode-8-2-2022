@@ -14,4 +14,7 @@ public interface ISysRoleRepo extends JpaRepository<SysRole, Integer> {
             "or lower(sr.name)like lower(concat('%',:search,'%') )"
     )
     List<SysRole> findSysRolesBy(@Param("search") String searchRole);
+
+    @Query(value = "SELECT * FROM vps_game_flatform.sys_role", nativeQuery = true)
+    List<SysRole> getAll();
 }
