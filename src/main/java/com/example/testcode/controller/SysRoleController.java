@@ -1,9 +1,10 @@
 package com.example.testcode.controller;
 
-import com.example.testcode.model.ResponObj;
-import com.example.testcode.model.ResponSaveRole;
-import com.example.testcode.model.SysRole;
+import com.example.testcode.model.*;
+import com.example.testcode.model.dto.SysMenuDTO;
+import com.example.testcode.model.dto.response.SysMenuResponse;
 import com.example.testcode.service.SysRoleService;
+import com.example.testcode.service.sysMenu.SysMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ import java.util.List;
 public class SysRoleController {
     @Autowired
     private SysRoleService sysRoleService;
+    @Autowired
+    private SysMenuService sysMenuService;
+
 
     @GetMapping("/search-role")
     public ResponseEntity<List<SysRole>> searchRole(@RequestParam(name = "search") String search, Pageable pageable) {
@@ -48,5 +52,28 @@ public class SysRoleController {
         if (sysRoleService.removeRole(roleId))
             return new ResponSaveRole(200, "Success");
         return new ResponSaveRole(207, "IP not found");
+    }
+
+    @GetMapping("/menu-of-role")
+    public ResponseEntity<?> getSysMenu(@RequestParam(name = "roleId") int roleId) {
+//        List<SysMenu> searchRoleCode = sysMenuService.getSysMenu(search);
+//        if (searchRoleCode != null) {
+//            return new SysMenuDTO(200, searchRoleCode.get(Integer.parseInt(search)).getSysMenuId(),
+//                    searchRoleCode.get(Integer.parseInt(search)).getParentId(),
+//                    searchRoleCode.get(Integer.parseInt(search)).getCode(),
+//                    searchRoleCode.get(Integer.parseInt(search)).getName(),
+//                    searchRoleCode.get(Integer.parseInt(search)).getSortOrder(),
+//                    "success"
+//            );
+//        }
+//        return new SysMenuDTO(207, "IP không hợp lệ");
+//    }
+        List<ResponseMenuRole> searchh= sysMenuService.getSysMenu(roleId);
+        System.out.println(searchh);
+        if (searchh != null) {
+           ResponObj responObj = new ResponObj(200,"abc",searchh);
+           return new ResponseEntity<>(responObj,HttpStatus.OK);
+        }
+        return null;
     }
 }

@@ -11,7 +11,8 @@ public class SysMenu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sys_menu_id")
-    private int sysMenuId;
+    private int id;
+
     @Column(name = "parent_id")
     private int parentId;
     @Column(name = "code")
