@@ -1,8 +1,6 @@
 package com.example.testcode.controller;
 
 import com.example.testcode.model.*;
-import com.example.testcode.model.dto.SysMenuDTO;
-import com.example.testcode.model.dto.response.SysMenuResponse;
 import com.example.testcode.service.SysRoleService;
 import com.example.testcode.service.sysMenu.SysMenuService;
 import org.springframework.beans.factory.annotation.Autowired;

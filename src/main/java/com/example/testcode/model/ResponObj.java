@@ -11,4 +11,7 @@ public class ResponObj extends ResponSaveRole {
         super(code, desc);
         this.data = data;
     }
+    public ResponObj(int code, String desc) {
+        super(code, desc);
+    }
 }
