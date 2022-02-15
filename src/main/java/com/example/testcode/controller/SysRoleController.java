@@ -1,8 +1,8 @@
 package com.example.testcode.controller;
 
 import com.example.testcode.model.*;
-import com.example.testcode.service.SysRoleService;
-import com.example.testcode.service.sysMenu.SysMenuService;
+import com.example.testcode.service.resMenuRole.IResMenuRoleService;
+import com.example.testcode.service.sysRole.ISysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -15,20 +15,20 @@ import java.util.List;
 @RequestMapping("/role")
 public class SysRoleController {
     @Autowired
-    private SysRoleService sysRoleService;
+    private ISysRoleService isysRoleService;
     @Autowired
-    private SysMenuService sysMenuService;
+    private IResMenuRoleService iResMenuRoleService;
 
 
     @GetMapping("/search-role")
     public ResponseEntity<List<SysRole>> searchRole(@RequestParam(name = "search") String search, Pageable pageable) {
-        List<SysRole> searchRole = sysRoleService.findSysRolesBy(search);
+        List<SysRole> searchRole = isysRoleService.findSysRolesBy(search);
         return new ResponseEntity<>(searchRole, HttpStatus.OK);
     }
 
     @GetMapping("/list-all-role")
     public ResponObj getAll() {
-        List<SysRole> getAllRole = sysRoleService.getAll();
+        List<SysRole> getAllRole = isysRoleService.getAll();
         if (getAllRole.size() == 0) {
             return new ResponObj(200, "empty data", getAllRole);
         }
@@ -36,20 +36,20 @@ public class SysRoleController {
     }
 
     @PostMapping("/save-role")
-    public ResponSaveRole saveRole(@RequestBody SysRole sysRole) {
-        if (sysRoleService.findById(sysRole.getId()) == null) {
-            sysRoleService.saveRole(sysRole);
-            return new ResponSaveRole(200, "success");
+    public ResponObj saveRole(@RequestBody SysRole sysRole) {
+        if (isysRoleService.findById(sysRole.getId()) == null) {
+            isysRoleService.saveRole(sysRole);
+            return new ResponObj(200, "success");
         }
-        sysRoleService.editRole(sysRole);
-        return new ResponSaveRole(200, "success");
+        isysRoleService.editRole(sysRole);
+        return new ResponObj(200, "success");
     }
 
     @DeleteMapping("/delete-role")
-    public ResponSaveRole delete(int roleId) {
-        if (sysRoleService.removeRole(roleId))
-            return new ResponSaveRole(200, "Success");
-        return new ResponSaveRole(207, "IP not found");
+    public ResponObj delete(int roleId) {
+        if (isysRoleService.removeRole(roleId))
+            return new ResponObj(200, "Success");
+        return new ResponObj(207, "IP not found");
     }
 
     @GetMapping("/menu-of-role")
@@ -66,12 +66,13 @@ public class SysRoleController {
 //        }
 //        return new SysMenuDTO(207, "IP không hợp lệ");
 //    }
-        List<ResponseMenuRole> searchh= sysMenuService.getSysMenu(roleId);
+        List<ResponseMenuRole> searchh = iResMenuRoleService.getSysMenu(roleId);
         System.out.println(searchh);
         if (searchh != null) {
-           ResponObj responObj = new ResponObj(200,"abc",searchh);
-           return new ResponseEntity<>(responObj,HttpStatus.OK);
+            ResponObj responObj = new ResponObj(200, "abc", searchh);
+            return new ResponseEntity<>(responObj, HttpStatus.OK);
         }
         return null;
     }
+
 }

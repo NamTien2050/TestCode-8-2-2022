@@ -1,10 +1,9 @@
-package com.example.testcode.service;
+package com.example.testcode.service.sysRole;
 
 import com.example.testcode.model.SysRole;
 import com.example.testcode.repository.ISysRoleRepo;
+import com.example.testcode.service.sysRole.ISysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

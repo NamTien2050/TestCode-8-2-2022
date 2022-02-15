@@ -12,9 +12,8 @@ public class SysMenu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sys_menu_id")
     private int id;
-
     @Column(name = "parent_id")
-    private int parentId;
+    private Integer parentId;
     @Column(name = "code")
     private String code;
     @Column(name = "name")
@@ -24,19 +23,19 @@ public class SysMenu {
     @Column(name = "url")
     private String url;
     @Column(name = "sort_order")
-    private int sortOrder;
+    private Integer sortOrder;
     @Column(name = "path")
     private String path;
     @Column(name = "full_path")
     private String fullPath;
     @Column(name = "application_id")
-    private int applicationId;
+    private Integer applicationId;
     @Column(name = "new_id")
-    private int newId;
+    private Integer newId;
     @Column(name = "status")
-    private int status;
+    private Integer status;
     @Column(name = "resource_key")
-    private int resourceKey;
+    private Integer resourceKey;
     @Column(name = "menu_css")
     private String menuCss;
 }

@@ -4,14 +4,19 @@ import lombok.*;
 
 @Getter
 @Setter
-public class ResponObj extends ResponSaveRole {
+public class ResponObj {
     private Object data;
+    private int code;
+    private String desc;
 
     public ResponObj(int code, String desc, Object data) {
-        super(code, desc);
+        this.code = code;
+        this.desc = desc;
         this.data = data;
     }
+
     public ResponObj(int code, String desc) {
-        super(code, desc);
+        this.code = code;
+        this.desc = desc;
     }
 }

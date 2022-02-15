@@ -1,4 +1,4 @@
-package com.example.testcode.model.dto.response;
+package com.example.testcode.model.response;
 
 import lombok.Data;
 
