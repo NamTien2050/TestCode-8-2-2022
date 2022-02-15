@@ -15,4 +15,9 @@ public class DomainDataService implements IDomainDataService {
     public List<DomainData> listDomainData() {
         return iDomainDataRepo.findAll();
     }
+
+    @Override
+    public DomainData findById(int id) {
+        return iDomainDataRepo.findById(id).get();
+    }
 }

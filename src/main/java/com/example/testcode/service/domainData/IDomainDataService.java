@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IDomainDataService {
     List<DomainData> listDomainData();
+    DomainData findById(int id);
 }
