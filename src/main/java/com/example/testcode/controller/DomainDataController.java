@@ -6,10 +6,7 @@ import com.example.testcode.model.dto.ViewMenuDomainDTO;
 import com.example.testcode.service.domainData.IDomainDataService;
 import com.example.testcode.service.viewMenuDomain.IViewMenuDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 

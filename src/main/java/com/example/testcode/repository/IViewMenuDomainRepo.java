@@ -1,6 +1,5 @@
 package com.example.testcode.repository;
 
-import com.example.testcode.model.DomainData;
 import com.example.testcode.model.ViewMenuDomain;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,5 +13,4 @@ public interface IViewMenuDomainRepo extends JpaRepository<ViewMenuDomain, Integ
             "or name = ?3 ",
             nativeQuery = true)
     List<ViewMenuDomain> findByDomainDataList(Integer parentId, String code, String name);
-
 }
