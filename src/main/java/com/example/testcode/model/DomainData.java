@@ -20,7 +20,7 @@ public class DomainData {
     @Column(name = "data_name")
     private String dataName;
     @Column(name = "parent_id")
-    private int parentId;
+    private Integer parentId;
     @Column(name = "path")
     private String path;
     @Column(name = "full_path")

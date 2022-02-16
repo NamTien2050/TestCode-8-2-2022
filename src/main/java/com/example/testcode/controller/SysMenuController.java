@@ -20,9 +20,9 @@ public class SysMenuController {
     public ResponObj getAllBySysMenu(@RequestParam(required = false) String code,
                                      @RequestParam(required = false) String name,
                                      @RequestParam(required = false) String url) {
-        List<SysMenuDTO> listSysMenu = iSysMenuService.getAllBySysMenu(code, name, url);
-        if (listSysMenu != null)
-            return new ResponObj(200, "success", listSysMenu);
+        List<SysMenuDTO> sysMenuList = iSysMenuService.getAllBySysMenu(code, name, url);
+        if (sysMenuList != null)
+            return new ResponObj(200, "success", sysMenuList);
         return new ResponObj(207, "IP not found");
     }
     @PostMapping("/save-menu")

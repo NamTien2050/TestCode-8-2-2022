@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "v_menu_role")
 @Data
-public class ResponseMenuRole {
+public class ViewMenuRole {
     @Id
     @Column(name = "sys_role_id")
     private int sysRoleId;

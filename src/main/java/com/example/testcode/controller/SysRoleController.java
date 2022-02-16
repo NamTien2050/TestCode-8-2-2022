@@ -1,7 +1,7 @@
 package com.example.testcode.controller;
 
 import com.example.testcode.model.*;
-import com.example.testcode.service.resMenuRole.IResMenuRoleService;
+import com.example.testcode.service.viewMenuRole.IViewMenuRoleService;
 import com.example.testcode.service.sysRole.ISysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +17,7 @@ public class SysRoleController {
     @Autowired
     private ISysRoleService isysRoleService;
     @Autowired
-    private IResMenuRoleService iResMenuRoleService;
+    private IViewMenuRoleService iViewMenuRoleService;
 
 
     @GetMapping("/search-role")
@@ -66,7 +66,7 @@ public class SysRoleController {
 //        }
 //        return new SysMenuDTO(207, "IP không hợp lệ");
 //    }
-        List<ResponseMenuRole> searchh = iResMenuRoleService.getSysMenu(roleId);
+        List<ViewMenuRole> searchh = iViewMenuRoleService.getSysMenu(roleId);
         System.out.println(searchh);
         if (searchh != null) {
             ResponObj responObj = new ResponObj(200, "abc", searchh);
