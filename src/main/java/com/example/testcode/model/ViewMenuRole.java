@@ -12,10 +12,10 @@ import javax.persistence.Table;
 @Data
 public class ViewMenuRole {
     @Id
-    @Column(name = "sys_role_id")
-    private int sysRoleId;
     @Column(name = "sys_menu_id")
     private int sysMenuId;
+    @Column(name = "sys_role_id")
+    private int sysRoleId;
     @Column(name = "code")
     private String codes;
     @Column(name = "name")

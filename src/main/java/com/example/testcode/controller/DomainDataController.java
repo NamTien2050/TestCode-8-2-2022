@@ -22,7 +22,7 @@ public class DomainDataController {
     public ResponObj findAll(@RequestParam(required = false) Integer parentId) {
         List<DomainDataDTO> dataDTOList = iDomainDataService.getAllDomain(parentId);
         if (dataDTOList != null)
-            return new ResponObj(200, "success", dataDTOList);
+            return new ResponObj(200, "successful", dataDTOList);
         return new ResponObj(207, "IP not found");
     }
 
@@ -32,7 +32,7 @@ public class DomainDataController {
                                           @RequestParam(required = false) String name) {
         List<ViewMenuDomainDTO> viewList = iViewMenuDomainService.findByDomainDataList(parentId, code, name);
         if (viewList != null)
-            return new ResponObj(200, "success", viewList);
+            return new ResponObj(200, "successful", viewList);
         return new ResponObj(207, "IP not found");
     }
 }

@@ -13,4 +13,5 @@ public interface IViewMenuDomainRepo extends JpaRepository<ViewMenuDomain, Integ
             "or name = ?3 ",
             nativeQuery = true)
     List<ViewMenuDomain> findByDomainDataList(Integer parentId, String code, String name);
+
 }

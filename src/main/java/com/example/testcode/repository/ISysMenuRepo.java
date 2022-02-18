@@ -2,10 +2,7 @@ package com.example.testcode.repository;
 
 import com.example.testcode.model.SysMenu;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.testcode.model.dto.SysMenuDTO;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

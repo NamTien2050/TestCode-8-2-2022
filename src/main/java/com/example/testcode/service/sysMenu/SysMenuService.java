@@ -36,12 +36,12 @@ public class SysMenuService implements ISysMenuService {
 
     @Override
     public Boolean saveSysMenu(SysMenu newSysMenu) {
-        SysMenu old = iSysMenuRepo.getById(newSysMenu.getId());
+        SysMenu old = iSysMenuRepo.getById(newSysMenu.getSysMenuId());
         if (old == null) {
             iSysMenuRepo.save(newSysMenu);
             return true;
         } else {
-            old.setId(newSysMenu.getId());
+            old.setSysMenuId(newSysMenu.getSysMenuId());
             old.setCode(newSysMenu.getCode());
             old.setName(newSysMenu.getName());
             old.setParentId(newSysMenu.getParentId());

@@ -1,6 +1,7 @@
 package com.example.testcode.controller;
 
 import com.example.testcode.model.*;
+import com.example.testcode.model.dto.SysMenuDTO;
 import com.example.testcode.service.viewMenuRole.IViewMenuRoleService;
 import com.example.testcode.service.sysRole.ISysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,8 @@ public class SysRoleController {
     @GetMapping("/list-all-role")
     public ResponObj getAll() {
         List<SysRole> getAllRole = isysRoleService.getAll();
-        if (getAllRole.size() == 0) {
+        if (getAllRole.size() == 0)
             return new ResponObj(200, "empty data", getAllRole);
-        }
         return new ResponObj(200, "Successful", getAllRole);
     }
 
@@ -39,7 +39,7 @@ public class SysRoleController {
     public ResponObj saveRole(@RequestBody SysRole sysRole) {
         if (isysRoleService.findById(sysRole.getId()) == null) {
             isysRoleService.saveRole(sysRole);
-            return new ResponObj(200, "success");
+            return new ResponObj(200, "successful");
         }
         isysRoleService.editRole(sysRole);
         return new ResponObj(200, "success");
@@ -48,12 +48,12 @@ public class SysRoleController {
     @DeleteMapping("/delete-role")
     public ResponObj delete(int roleId) {
         if (isysRoleService.removeRole(roleId))
-            return new ResponObj(200, "Success");
+            return new ResponObj(200, "Successful");
         return new ResponObj(207, "IP not found");
     }
 
     @GetMapping("/menu-of-role")
-    public ResponseEntity<?> getSysMenu(@RequestParam(name = "roleId") int roleId) {
+    public ResponObj getSysMenuRole(@RequestParam(name = "roleId") int roleId) {
 //        List<SysMenu> searchRoleCode = sysMenuService.getSysMenu(search);
 //        if (searchRoleCode != null) {
 //            return new SysMenuDTO(200, searchRoleCode.get(Integer.parseInt(search)).getSysMenuId(),
@@ -66,13 +66,9 @@ public class SysRoleController {
 //        }
 //        return new SysMenuDTO(207, "IP không hợp lệ");
 //    }
-        List<ViewMenuRole> searchh = iViewMenuRoleService.getSysMenu(roleId);
-        System.out.println(searchh);
-        if (searchh != null) {
-            ResponObj responObj = new ResponObj(200, "abc", searchh);
-            return new ResponseEntity<>(responObj, HttpStatus.OK);
-        }
-        return null;
+        List<SysMenuDTO> sysMenuDTOList = iViewMenuRoleService.getSysMenuRole(roleId);
+        if (sysMenuDTOList != null)
+            return new ResponObj(200, "successful", sysMenuDTOList);
+        return new ResponObj(207, "IP not found");
     }
-
 }

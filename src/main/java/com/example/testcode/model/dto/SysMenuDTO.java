@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class SysMenuDTO {
-    int id;
+    int sysMenuId;
     Integer parentId;
     String code;
     String name;

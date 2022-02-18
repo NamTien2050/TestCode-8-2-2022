@@ -19,6 +19,6 @@ public interface IViewMenuRoleRepo extends JpaRepository<ViewMenuRole, Integer> 
 //    @Query(value = "select sm.code from SysMenu sm join RoleMenu rm on sm.id = rm.sysMenuId join SysRole sr on sr.id = rm.sysRoleID where sr.id = ?1")
 //    List<SysMenuResponse> getSysMenu(int id);
 
-    @Query(value = "select * from v_menu_role where sys_role_id = :id ", nativeQuery = true)
-    List<ViewMenuRole> getSysMenu(@Param("id") int id);
+    @Query(value = "select v from ViewMenuRole v where v.sysRoleId = :id ")
+    List<ViewMenuRole> getSysMenuRole(@Param("id") int id);
 }
