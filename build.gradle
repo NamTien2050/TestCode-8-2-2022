@@ -27,6 +27,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'org.springframework.security', name: 'spring-security-web', version: '5.6.1'
+    implementation group: 'org.springframework.security', name: 'spring-security-jwt', version: '1.0.9.RELEASE'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '1.5.9.RELEASE'
 }
 
 tasks.named('test') {
